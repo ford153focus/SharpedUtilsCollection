@@ -4,7 +4,7 @@
 using System;
 using System.Text;
 
-namespace FordToolbox
+namespace SharpedUtilsCollection
 {
     public class StringUtils
     {
@@ -28,20 +28,23 @@ namespace FordToolbox
         /**
         <summary>Convert cp1251-string to UTF8</summary>
         */
-        public static string CyrToUnicode(string source)
+        public static string CyrToUnicode(string sourceString)
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
             Encoding win1251encoding = Encoding.GetEncoding(1251);
             Encoding utf8encoding = Encoding.UTF8;
 
-            return utf8encoding.GetString(win1251encoding.GetBytes(source));
+            byte[] sourceBytes = win1251encoding.GetBytes(sourceString);
+
+            return utf8encoding.GetString(sourceBytes);
         }
 
         private static int ComputeLevenshteinDistance(string source, string target)
         {
-            if ((source == null) || (target == null)) return 0;
-            if ((source.Length == 0) || (target.Length == 0)) return 0;
+            if (string.IsNullOrEmpty(source)) return 0;
+            if (string.IsNullOrEmpty(target)) return 0;
+            
             if (source == target) return source.Length;
 
             int sourceWordCount = source.Length;
@@ -78,8 +81,9 @@ namespace FordToolbox
         /// <url>https://social.technet.microsoft.com/wiki/contents/articles/26805.c-calculating-percentage-similarity-of-2-strings.aspx</url>
         public static double CalculateSimilarity(string source, string target)
         {
-            if ((source == null) || (target == null)) return 0.0;
-            if ((source.Length == 0) || (target.Length == 0)) return 0.0;
+            if (string.IsNullOrEmpty(source)) return 0;
+            if (string.IsNullOrEmpty(target)) return 0;
+            
             if (source == target) return 1.0;
 
             int stepsToSame = ComputeLevenshteinDistance(source, target);

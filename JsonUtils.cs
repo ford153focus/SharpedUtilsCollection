@@ -1,15 +1,15 @@
-﻿using System.IO;
+using System.IO;
 using System.Json;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FordToolbox
+namespace SharpedUtilsCollection
 {
-    public class JsonUtils
+    public static class JsonUtils
     {
-        private static async Task<JsonValue> DynamicParse(string filePath)
+        public static async Task<JsonValue> DynamicFileParse(string filePath)
         {
-            var fileContent = await File.ReadAllTextAsync(filePath, Encoding.UTF8);
+            string fileContent = await File.ReadAllTextAsync(filePath, Encoding.UTF8);
             return JsonValue.Parse(fileContent);
         }
     }

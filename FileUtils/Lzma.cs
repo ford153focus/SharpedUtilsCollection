@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace SharpedUtilsCollection
+namespace SharpedUtilsCollection.FileUtils
 {
     public static class Lzma
     {

@@ -1,4 +1,4 @@
-﻿// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable MemberCanBePrivate.Global
 
 using System;
 using System.IO;
@@ -11,7 +11,7 @@ using PuppeteerSharp;
 
 namespace SharpedUtilsCollection.PuppeteerUtils
 {
-    public static class Utils
+    public static class Wrapper
     {
         private static Browser? _browser;
         private static Page? _page;
@@ -144,7 +144,7 @@ namespace SharpedUtilsCollection.PuppeteerUtils
             try
             {
                 var extensionFolder = Path.Combine(
-                    Environment.GetEnvironmentVariable("HOME"),
+                    Environment.GetEnvironmentVariable("HOME") ?? "~/",
                     ".config/google-chrome/Default/Extensions",
                     extensionId
                 );
@@ -225,9 +225,9 @@ namespace SharpedUtilsCollection.PuppeteerUtils
         {
             var boundingClientRectStr = await element.EvaluateFunctionAsync<string>("element => element.getBoundingClientRect()");
             DomRect boundingClientRect = JsonConvert.DeserializeObject<DomRect>(boundingClientRectStr);
-            var xCoord = boundingClientRect.X+boundingClientRect.Width/2;
-            var yCoord = boundingClientRect.Y+boundingClientRect.Height/2;
-            await _page.Mouse.ClickAsync((int)xCoord, (int)yCoord);
+            var xCoordinate = boundingClientRect.X+boundingClientRect.Width/2;
+            var yCoordinate = boundingClientRect.Y+boundingClientRect.Height/2;
+            await _page.Mouse.ClickAsync((int)xCoordinate, (int)yCoordinate);
         }
 
         public static async Task<JsonValue> GetJson(string url)

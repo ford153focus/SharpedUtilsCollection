@@ -3,9 +3,6 @@
 
 using System.Collections.Generic;
 using System.IO;
-using System.Security.Cryptography;
-using System.Text;
-using Force.Crc32;
 
 namespace SharpedUtilsCollection.FileUtils
 {
@@ -25,17 +22,7 @@ namespace SharpedUtilsCollection.FileUtils
             }
         }
 
-        public static uint GetCrc32(string filePath)
-        {
-            return Crc32Algorithm.Compute(File.ReadAllBytes(filePath));
-        }
-
-        public static string GetMd5(string filePath)
-        {
-            var md5 = MD5.Create();
-            var stream = File.OpenRead(filePath);
-            return Encoding.Default.GetString(md5.ComputeHash(stream));
-        }
+        
 
         ///<summary>Get files list in specified folder and subfolders</summary>
         public static List<string> CollectLocalFilesList(string path)

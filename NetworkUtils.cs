@@ -7,19 +7,30 @@ using System.Threading;
 using System.Threading.Tasks;
 using MihaZupan;
 
-namespace FordToolbox
+namespace SharpedUtilsCollection
 {
     public class NetworkUtils
     {
-        public static async Task DownloadFileThruProxy(string url, string dlPath, string proxyAddress="127.0.0.1", int proxyPort=9050)
+        public static async Task<string> DownloadPageThruProxy(string url, string proxyAddress="127.0.0.1", int proxyPort=9050)
         {
             HttpToSocks5Proxy proxy = new(proxyAddress, proxyPort);
             HttpClientHandler handler = new() { Proxy = proxy };
             HttpClient httpClient = new(handler, true);
+            
+            var result = await httpClient.SendAsync(new HttpRequestMessage(HttpMethod.Get, url));
+            var content = await result.Content.ReadAsStringAsync();
+            return content;
+        }
 
+        public static async Task DownloadFileThruProxy(string url, string path, string proxyAddress="127.0.0.1", int proxyPort=9050)
+        {
+            HttpToSocks5Proxy proxy = new(proxyAddress, proxyPort);
+            HttpClientHandler handler = new() { Proxy = proxy };
+            HttpClient httpClient = new(handler, true);
+            
             var result = await httpClient.SendAsync(new HttpRequestMessage(HttpMethod.Get, url));
             var content = await result.Content.ReadAsStreamAsync();
-            FileUtils.WriteStreamToFile(content, dlPath);
+            FileUtils.Utils.WriteStreamToFile(content, path);
         }
 
         public static bool IsPortOpen(string host, int port, int timeout = 4444, int retryCount = 1)

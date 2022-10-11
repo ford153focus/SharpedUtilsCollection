@@ -3,15 +3,15 @@
 
 using System;
 
-namespace SharpedUtilsCollection.DateTime
+namespace SharpedUtilsCollection.DateTimeUtils
 {
-    public class DateTimeUtils
+    public class Utils
     {
         public const int SecsInWeek = 7 * 24 * 60 * 60;
 
         public static double UnixNow()
         {
-            TimeSpan timeSpan = System.DateTime.UtcNow - new System.DateTime(1970, 1, 1);
+            TimeSpan timeSpan = DateTime.UtcNow - new DateTime(1970, 1, 1);
             return timeSpan.TotalSeconds;
         }
     }

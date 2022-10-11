@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Text;
 
-namespace FordToolbox
+namespace SharpedUtilsCollection
 {
     public class ConsoleUtils
     {
