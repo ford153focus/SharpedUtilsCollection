@@ -4,7 +4,7 @@
         <TargetFramework>netstandard2.1</TargetFramework>
         <Nullable>enable</Nullable>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-        <LangVersion>9</LangVersion>
+        <LangVersion>10</LangVersion>
         <Version>22.10.12</Version>
         <Title>SharpedUtilsCollection</Title>
         <Authors>ford153focus</Authors>
