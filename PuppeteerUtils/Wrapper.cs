@@ -46,18 +46,7 @@ namespace SharpedUtilsCollection.PuppeteerUtils
         {
             get
             {
-                if (_page == null)
-                {
-                    _page = Browser.NewPageAsync().Result;
-
-                    /*await _page.SetViewportAsync(new ViewPortOptions
-                    {
-                        Width = 1600,
-                        Height = 900,
-                        DeviceScaleFactor = 2
-                    });*/
-                }
-
+                if (_page == null) _page = Browser.NewPageAsync().Result;
                 return _page;
             }
         }
