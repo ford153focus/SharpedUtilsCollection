@@ -12,11 +12,14 @@
     </PropertyGroup>
     
     <ItemGroup>
+        <PackageReference Include="BouncyCastle" Version="1.8.9" />
         <PackageReference Include="Crc32.NET" Version="1.2.0" />
         <PackageReference Include="HttpToSocks5Proxy" Version="1.4.0" />
+        <PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.4" />
         <PackageReference Include="PuppeteerSharp" Version="6.2.0" />
         <PackageReference Include="SevenZip" Version="19.0.0" />
         <PackageReference Include="System.Json" Version="4.7.1" />
+        <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="7.0.1" />
         <PackageReference Include="System.Text.Encoding.CodePages" Version="6.0.0" />
     </ItemGroup>
 </Project>
