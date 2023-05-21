@@ -1,18 +1,17 @@
-using System.Diagnostics.CodeAnalysis;
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable UnassignedField.Global
 
-namespace SharpedUtilsCollection.PuppeteerUtils
+namespace SharpedUtilsCollection.PuppeteerUtils;
+
+public class DomRect
 {
-    [SuppressMessage("ReSharper", "UnassignedField.Global")]
-    [SuppressMessage("ReSharper", "UnusedMember.Global")]
-    public class DomRect
-    {
-        public float Bottom;
-        public float Height;
-        public float Left;
-        public float Right;
-        public float Top;
-        public float Width;
-        public float X;
-        public float Y;
-    }
+    public float Bottom;
+    public float Height;
+    public float Left;
+    public float Right;
+    public float Top;
+    public float Width;
+    public float X;
+    public float Y;
 }

@@ -1,3 +1,6 @@
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+
 using System;
 using System.Text;
 
@@ -26,7 +29,7 @@ public class ConsoleUtils
         lock (ConsoleLock)
         {
             Console.OutputEncoding = Encoding.Default;
-            Console.BackgroundColor = ConsoleColor.Green;
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Write(message);
             Console.ResetColor();
@@ -40,7 +43,7 @@ public class ConsoleUtils
         lock (ConsoleLock)
         {
             Console.OutputEncoding = Encoding.Default;
-            Console.BackgroundColor = ConsoleColor.Yellow;
+            Console.BackgroundColor = ConsoleColor.DarkYellow;
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Write(message);
             Console.ResetColor();
