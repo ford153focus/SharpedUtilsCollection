@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using PuppeteerSharp;
+using SharpedUtilsCollection.PuppeteerUtils.Models;
 
 namespace SharpedUtilsCollection.PuppeteerUtils;
 

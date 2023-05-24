@@ -6,9 +6,12 @@ using System.Linq;
 
 namespace SharpedUtilsCollection;
 
-public class ProcUtils
+public static class ProcUtils
 {
-    static void exec(string cmd)
+    /**
+     * Execute command in terminal
+     */
+    public static void Exec(string cmd)
     {
         string[] segments = cmd.Split(' ');
 

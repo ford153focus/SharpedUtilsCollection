@@ -1,5 +1,6 @@
 // ReSharper disable UnusedType.Global
 // ReSharper disable UnusedMember.Global
+// ReSharper disable InconsistentNaming
 
 using System;
 using System.Text;
@@ -8,9 +9,9 @@ namespace SharpedUtilsCollection;
 
 public class StringUtils
 {
-    /**
-        <summary>Convert UTF8-string to UTF16</summary>
-        */
+    ///
+    ///<summary>Convert UTF8-string to UTF16</summary>
+    ///
     public static string EightToSixteen(string u8Str)
     {
         //UTF8 bytes
@@ -25,15 +26,25 @@ public class StringUtils
         return u16Str;
     }
 
-    /**
-        <summary>Convert cp1251-string to UTF8</summary>
-        */
+    ///
+    ///<summary>Convert cp1251-string to UTF8</summary>
+    ///
     public static string CyrToUnicode(string sourceString)
     {
         Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
         byte[] sourceBytes = Encoding.GetEncoding(1251).GetBytes(sourceString);
         return Encoding.UTF8.GetString(sourceBytes);
+    }
+    
+    public static bool IsValidUrl(string url)
+    {
+        if (!Uri.TryCreate(url, UriKind.Absolute, out var uri))
+        {
+            return false;
+        }
+
+        return uri.Scheme == Uri.UriSchemeHttp || uri.Scheme == Uri.UriSchemeHttps;
     }
 
     private static int ComputeLevenshteinDistance(string source, string target)

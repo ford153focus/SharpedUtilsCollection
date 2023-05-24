@@ -2,9 +2,12 @@
 
 namespace SharpedUtilsCollection;
 
-public class Paths
+public static class Paths
 {
-    static string GetTemporaryDirectory()
+    /**
+     * Create temporary folder
+     */
+    public static string GetTemporaryDirectory()
     {
         var folder = Path.Combine(
             Path.GetTempPath(),
@@ -16,5 +19,15 @@ public class Paths
         if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
 
         return folder;
+    }
+
+    /**
+     * Remove from string all chars that can not be in path
+     */
+    public static string SafePath(string input)
+    {
+        return string.Concat(
+            input.Split(Path.GetInvalidFileNameChars())
+        );
     }
 }

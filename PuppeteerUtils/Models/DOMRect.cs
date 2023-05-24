@@ -2,7 +2,7 @@
 // ReSharper disable UnusedMember.Global
 // ReSharper disable UnassignedField.Global
 
-namespace SharpedUtilsCollection.PuppeteerUtils;
+namespace SharpedUtilsCollection.PuppeteerUtils.Models;
 
 public class DomRect
 {

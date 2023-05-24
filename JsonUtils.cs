@@ -10,6 +10,9 @@ namespace SharpedUtilsCollection;
 
 public static class JsonUtils
 {
+    /**
+     * Parse JSON-file to dynamic System.Json.JsonValue
+     */
     public static async Task<JsonValue> DynamicFileParse(string filePath)
     {
         string fileContent = await File.ReadAllTextAsync(filePath, Encoding.UTF8);
