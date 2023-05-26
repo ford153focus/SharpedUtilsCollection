@@ -1,18 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
         <Nullable>enable</Nullable>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <LangVersion>10</LangVersion>
-        <Version>22.10.12</Version>
+        <Version>23.05.26</Version>
         <Title>SharpedUtilsCollection</Title>
         <Authors>ford153focus</Authors>
         <PackageLicenseUrl>https://www.gnu.org/licenses/lgpl-3.0.txt</PackageLicenseUrl>
     </PropertyGroup>
     
     <ItemGroup>
-        <PackageReference Include="BouncyCastle" Version="1.8.9" />
+        <PackageReference Include="BouncyCastle.Cryptography" Version="2.2.1" />
         <PackageReference Include="Crc32.NET" Version="1.2.0" />
         <PackageReference Include="HttpToSocks5Proxy" Version="1.4.0" />
         <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
