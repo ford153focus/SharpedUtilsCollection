@@ -1,9 +1,18 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace SharpedUtilsCollection;
 
 public static class Paths
 {
+    /**
+     * Create temporary folder
+     */
+    public static string GetHomeDirectoryPath()
+    {
+        return Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+    }
+    
     /**
      * Create temporary folder
      */
